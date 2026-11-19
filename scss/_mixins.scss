@@ -1,0 +1,37 @@
+// ==========================================================================
+// iHAVECPU Official Home Page Clone — Mixins (_mixins.scss)
+// ==========================================================================
+@use 'variables' as *;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin line-clamp($lines: 2) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin card-surface {
+  background: $bg-white;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+@mixin respond-max($bp) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}

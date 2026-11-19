@@ -1,0 +1,8 @@
+{
+  "name": "jib-on-ihavecpu-layout",
+  "version": "1.0.0",
+  "description": "iHaveCPU front-page layout rebranded with JIB Computer Group (jib.co.th) identity using HTML, CSS, and pure JavaScript",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
