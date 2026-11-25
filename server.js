@@ -1,6 +1,6 @@
 /**
  * ==========================================================================
- * JIB x iHaveCPU — Local Development Server & Auto-Launcher (server.js)
+ * JIB — Local Development Server & Auto-Launcher (server.js)
  * Zero external dependencies (uses Node.js built-in modules)
  * ==========================================================================
  */
@@ -60,7 +60,7 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
   const url = `http://localhost:${PORT}`;
   console.log("============================================================");
-  console.log(" 🚀 JIB x iHaveCPU Server is running!");
+  console.log(" 🚀 JIB local server is running!");
   console.log(` 🌐 Open in Browser: ${url}`);
   console.log(" 🛑 Press Ctrl + C to stop the server.");
   console.log("============================================================");

@@ -1,0 +1,20 @@
+:root {
+  --site-page-bg: #f6f9fc;
+  --site-surface: #ffffff;
+  --site-text: #2b3445;
+  --site-heading: #172033;
+  --site-muted: #7d879c;
+  --site-accent: #d4001a;
+  --site-accent-hover: #b90017;
+  --site-border: #dae1e7;
+  --site-container: 1440px;
+  --site-page-gutter: 12px;
+  --site-radius-sm: 6px;
+  --site-radius: 8px;
+  --site-radius-lg: 12px;
+  --site-card-shadow: 0 3px 12px rgba(43, 52, 69, .08);
+  --site-header-height: 80px;
+  --site-nav-height: 60px;
+  --site-topbar-height: 40px;
+  --site-transition: 200ms ease;
+}

@@ -85,7 +85,11 @@ function applyJibContent() {
     const group=bundle.categorySetComputer?.find(g=>g.campaign_type==='M');
     const siblings=[...el.parentElement.parentElement.querySelectorAll('.product-category-title')];
     const item=group?.itemsData[siblings.indexOf(el)];
-    if(item){el.textContent=item.title_th;const img=el.parentElement.querySelector('img');if(img){img.src=item.icon;img.alt=item.title_th;}}
+    if(item){
+      el.textContent=item.title_th;
+      const img=el.parentElement.querySelector('img:not([aria-hidden="true"])');
+      if(img){img.src=item.icon;img.alt=item.title_th;img.removeAttribute('srcset');}
+    }
   });
   window.IHAVECPU_BUNDLE.listStore = data.branches.map(b => ({stockists_name_th:b.title, stockists_desc_th:''}));
   counters.clear();
@@ -180,7 +184,9 @@ function applyJibContent() {
   });
   document.querySelectorAll('img').forEach((img,i)=>{
     if (img.closest('.diy-banner-row')) return;
-    if (notebookBrands.has(img.getAttribute('src')) && img.closest('.bQkqWd')) return;
+    // Product-set category icons are deliberately rendered as 30px thumbnails.
+    // Keep them out of the broad legacy iHAVECPU image replacement below.
+    if (img.closest('.bQkqWd')) return;
     if (img.closest('.by-order-carousel')) return;
     if(img.closest('.brand-showcase-container') || img.classList.contains('brand-logo-img') || img.closest('#new-arrivals-carousel') || img.closest('.wAZkf'))return;
     if(!/ihcupload|ihavecpu/i.test(img.src))return;
