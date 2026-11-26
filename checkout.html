@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ชำระเงิน | JIB</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/computer-sets.css">
+  <link rel="stylesheet" href="css/global-shell.css">
+  <link rel="stylesheet" href="css/site-header.css">
+  <link rel="stylesheet" href="css/account.css">
+  <link rel="stylesheet" href="css/cart.css">
+  <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body class="sets-page checkout-page">
+  <div class="sets-topbar"><div class="sets-topbar-inner"><div class="sets-topbar-left"><span>02-017-4444 (24 ชม.)</span><a href="contact.html">ติดต่อ JIB Online</a><span>บริษัท เจ.ไอ.บี. คอมพิวเตอร์ กรุ๊ป จำกัด (สำนักงานใหญ่)</span></div><a class="sets-nearby-store" href="contact.html">ค้นหาร้านค้าใกล้คุณ ›</a></div></div>
+  <header class="site-main-header">
+    <div class="site-main-header-inner">
+      <a class="site-main-logo" href="index.html" aria-label="หน้าแรก JIB"><img src="assets/images/logo_c.png" alt="JIB"></a>
+      <form class="site-main-search" role="search" action="index.html"><button type="submit" aria-label="ค้นหา"><img src="assets/images/icons/search.svg" alt=""></button><input name="q" type="search" placeholder="ค้นหาสินค้า" aria-label="ค้นหาสินค้า"></form>
+      <div class="site-main-actions" aria-label="เมนูลัด">
+        <button id="checkTrackingNumber" class="site-header-action" type="button" aria-label="เช็คสถานะการจัดส่ง"><img src="assets/images/icons/truck.svg" alt=""></button>
+        <button class="site-header-action" type="button" aria-label="เข้าสู่ระบบ"><img src="assets/images/icons/user.svg" alt=""></button>
+        <button name="button_cart" class="site-header-action site-cart-trigger" type="button" aria-label="ตะกร้าสินค้า"><img src="assets/images/icons/bag.svg" alt=""></button>
+      </div>
+    </div>
+  </header>
+  <nav class="sets-nav"><div class="sets-nav-inner"><div class="sets-category-holder"><a class="sets-category-toggle" href="index.html"><img src="assets/images/icons/categories.svg" alt=""><span>หมวดหมู่สินค้า</span><span>›</span></a></div><div class="sets-nav-links"><a href="index.html">หน้าแรก</a><a href="computer-sets.html">คอมพิวเตอร์เซต</a><a href="diy.html">จัดสเปกคอม</a><a href="blog.html">บทความ</a><a href="contact.html">ติดต่อเรา</a><a href="about.html">เกี่ยวกับเรา</a></div></div></nav>
+
+  <main class="checkout-main">
+    <div class="checkout-heading"><span>CHECKOUT</span><h1>ดำเนินการสั่งซื้อ</h1><p>กรอกข้อมูลจัดส่งและตรวจสอบรายการสินค้า</p></div>
+    <div id="checkout-content" class="checkout-layout">
+      <form id="checkout-form" class="checkout-form">
+        <h2>ข้อมูลผู้รับสินค้า</h2>
+        <div class="checkout-fields"><label><span>ชื่อ–นามสกุล</span><input name="name" autocomplete="name" required></label><label><span>เบอร์โทรศัพท์</span><input name="phone" type="tel" autocomplete="tel" required></label></div>
+        <label><span>อีเมล</span><input name="email" type="email" autocomplete="email" required></label>
+        <label><span>ที่อยู่สำหรับจัดส่ง</span><textarea name="address" rows="4" autocomplete="street-address" required></textarea></label>
+        <div class="checkout-fields"><label><span>จังหวัด</span><input name="province" required></label><label><span>รหัสไปรษณีย์</span><input name="postcode" inputmode="numeric" pattern="[0-9]{5}" required></label></div>
+        <h2>วิธีชำระเงิน</h2>
+        <label class="checkout-payment"><input name="payment" type="radio" value="transfer" checked><span><strong>โอนเงิน / QR Payment</strong><small>ระบบสาธิตจะยืนยันคำสั่งซื้อโดยไม่ตัดเงินจริง</small></span></label>
+        <label class="checkout-payment"><input name="payment" type="radio" value="cod"><span><strong>เก็บเงินปลายทาง</strong><small>ชำระเงินเมื่อได้รับสินค้า</small></span></label>
+      </form>
+      <aside class="checkout-summary"><h2>สรุปคำสั่งซื้อ</h2><div id="checkout-items" class="checkout-items"></div><div class="checkout-total-row"><span>ยอดรวมสินค้า</span><strong id="checkout-subtotal">฿0.00</strong></div><div class="checkout-total-row"><span>ค่าจัดส่ง</span><strong>ฟรี</strong></div><div class="checkout-total-row is-total"><span>ยอดชำระ</span><strong id="checkout-total">฿0.00</strong></div><button id="checkout-submit" type="submit" form="checkout-form">ยืนยันคำสั่งซื้อ</button><a href="cart.html">กลับไปแก้ไขตะกร้า</a></aside>
+    </div>
+    <section id="checkout-success" class="checkout-success" hidden><div>✓</div><h2>สั่งซื้อเรียบร้อยแล้ว</h2><p>หมายเลขคำสั่งซื้อ <strong id="checkout-order-number"></strong></p><p>ข้อมูลคำสั่งซื้อถูกบันทึกไว้ในเบราว์เซอร์นี้</p><a href="index.html">กลับสู่หน้าแรก</a></section>
+  </main>
+  <script src="js/product-routing.js?v=20261126-3"></script>
+  <script src="js/checkout.js"></script>
+  <script src="js/account.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>

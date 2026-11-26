@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ตะกร้าสินค้า JIB</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/computer-sets.css">
+  <link rel="stylesheet" href="css/global-shell.css">
+  <link rel="stylesheet" href="css/site-header.css">
+  <link rel="stylesheet" href="css/account.css">
+  <link rel="stylesheet" href="css/cart.css">
+</head>
+<body class="sets-page">
+  <div class="sets-topbar">
+    <div class="sets-topbar-inner">
+      <div class="sets-topbar-left">
+        <a href="tel:020174444"><img src="assets/images/icons/phone-call.svg" alt="">02-017-4444 (24 ชม.)</a>
+        <a href="https://page.line.me/jibonline" target="_blank" rel="noopener"><img src="assets/images/icons/mail.svg" alt="">LINE: @jibonline</a>
+        <span>บริษัท เจ.ไอ.บี. คอมพิวเตอร์ กรุ๊ป จำกัด (สำนักงานใหญ่)</span>
+      </div>
+      <a class="sets-nearby-store" href="https://www.jib.co.th/web/branch" target="_blank" rel="noopener"><img src="assets/images/icons/map-pin-2.svg" alt="">ค้นหาร้านค้าใกล้คุณ <span>›</span></a>
+    </div>
+  </div>
+  <header class="site-main-header">
+    <div class="site-main-header-inner">
+      <a class="site-main-logo" href="index.html" aria-label="หน้าแรก JIB"><img src="assets/images/logo_c.png" alt="JIB"></a>
+      <form class="site-main-search" action="index.html" role="search"><button type="submit" aria-label="ค้นหา"><img src="assets/images/icons/search.svg" alt=""></button><input name="q" type="search" placeholder="ค้นหาสินค้า" aria-label="ค้นหาสินค้า"></form>
+      <div class="site-main-actions" aria-label="เมนูลัด">
+        <button id="checkTrackingNumber" class="site-header-action" type="button" aria-label="เช็คสถานะการจัดส่ง"><img src="assets/images/icons/truck.svg" alt=""></button>
+        <button class="site-header-action" type="button" aria-label="เข้าสู่ระบบ"><img src="assets/images/icons/user.svg" alt=""></button>
+        <button name="button_cart" class="site-header-action site-cart-trigger" type="button" aria-label="ตะกร้าสินค้า"><img src="assets/images/icons/bag.svg" alt=""></button>
+      </div>
+    </div>
+  </header>
+  <nav class="sets-nav" aria-label="เมนูหลัก">
+    <div class="sets-nav-inner">
+      <div class="sets-category-holder"><button id="sets-category-toggle" class="sets-category-toggle" type="button" aria-expanded="false"><img src="assets/images/icons/categories.svg" alt=""><span>หมวดหมู่สินค้า</span><span class="sets-category-chevron">›</span></button></div>
+      <div class="sets-nav-links"><a href="index.html">หน้าแรก</a><a href="computer-sets.html">คอมพิวเตอร์เซต</a><a href="diy.html">จัดสเปกคอม</a><a href="blog.html">บทความ</a><a href="contact.html">ติดต่อเรา</a><a href="about.html">เกี่ยวกับเรา</a></div>
+    </div>
+  </nav>
+  <main class="cart-page-main">
+    <div class="cart-page-heading"><h1>ตะกร้าสินค้า</h1><span id="cart-page-count">0 ชิ้น</span></div>
+    <div class="cart-page-layout">
+      <section id="cart-page-items" class="cart-page-list" aria-label="รายการสินค้าในตะกร้า"></section>
+      <aside class="cart-page-summary" aria-label="สรุปคำสั่งซื้อ">
+        <h2>สรุปคำสั่งซื้อ</h2>
+        <div class="cart-summary-row"><span>ยอดรวมสินค้า</span><strong id="cart-page-subtotal">฿0.00</strong></div>
+        <div class="cart-summary-row"><span>ค่าจัดส่ง</span><strong>ฟรี</strong></div>
+        <div class="cart-summary-row is-total"><span>ยอดชำระ</span><strong id="cart-page-total">฿0.00</strong></div>
+        <button id="cart-page-checkout" class="cart-page-checkout" type="button">ดำเนินการสั่งซื้อ</button>
+      </aside>
+    </div>
+  </main>
+  <script src="js/account.js"></script>
+  <script src="js/product-routing.js?v=20261126-3"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>

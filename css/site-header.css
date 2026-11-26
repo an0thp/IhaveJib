@@ -1,0 +1,306 @@
+/* Shared main header based on the homepage header supplied by the user. */
+.site-main-header {
+  position: relative;
+  z-index: 111;
+  height: 80px;
+  background: #fff;
+}
+.site-main-header-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: calc(100% - 24px);
+  max-width: 1440px;
+  height: 100%;
+  margin-inline: auto;
+  padding-inline: 0;
+  box-sizing: border-box;
+}
+
+.site-main-logo {
+  display: flex;
+  flex: 0 0 159px;
+  align-items: center;
+  width: 159px;
+  height: 50px;
+  margin-right: 16px;
+}
+
+.site-main-logo img {
+  display: block;
+  width: auto;
+  height: 50px;
+  object-fit: contain;
+}
+
+.site-main-search {
+  position: relative;
+  left: auto;
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  width: auto;
+  max-width: none;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  transform: none;
+}
+
+.site-main-search > button {
+  position: absolute;
+  z-index: 2;
+  left: 16px;
+  display: grid;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  place-items: center;
+  cursor: pointer;
+}
+
+.site-main-search > button img {
+  width: 20px;
+  height: 20px;
+}
+
+.site-main-search > input {
+  width: 100%;
+  height: 42px;
+  padding: 8px 18px 8px 48px;
+  border: 1px solid #dae1e7;
+  border-radius: 300px;
+  outline: 0;
+  background: #fff;
+  color: #2b3445;
+  font: inherit;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.site-main-search > input::placeholder {
+  color: #7d879c;
+  opacity: 1;
+}
+
+.site-main-search > input:hover {
+  border-color: #aeb4be;
+}
+
+.site-main-search > input:focus {
+  border-color: #e94560;
+  box-shadow: 0 0 0 3px rgba(233, 69, 96, .09);
+}
+
+.site-main-actions {
+  display: flex;
+  flex: 0 0 180px;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  height: 44px;
+  margin-left: auto;
+}
+
+/* Match the generated homepage header despite its higher-specificity legacy rule. */
+.jpwElL .eARoIR .header-right.site-main-actions {
+  width: 180px;
+  height: 44px;
+  flex: 0 0 180px;
+  gap: 16px;
+  justify-content: flex-end;
+}
+
+.site-header-action {
+  position: relative;
+  display: grid;
+  flex: 0 0 44px;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 6px;
+  border: 0;
+  border-radius: 50%;
+  outline: 0;
+  background: #f3f5f9;
+  color: #4b566b;
+  place-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: background-color 150ms ease, transform 150ms ease;
+}
+
+/* Prevent page-level button rules from turning header actions into outlined squares. */
+.site-main-header .site-header-action {
+  border: 0;
+  border-radius: 50%;
+  padding: 6px;
+  background: #f3f6fa;
+  color: #4b566b;
+  box-shadow: none;
+}
+
+.jpwElL .eARoIR .header-right.site-main-actions > .site-header-action {
+  flex: 0 0 44px;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 6px;
+}
+
+.site-header-action:hover,
+.site-header-action:focus-visible {
+  background: #e3e9ef;
+}
+
+.site-header-action:active {
+  transform: scale(.96);
+}
+
+.site-header-action img {
+  display: block;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  opacity: 0;
+}
+
+/* Render every header action from one exact color token, independent of the
+   original SVG fill used by each asset. */
+.site-header-action::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  background: #4b566b;
+  content: "";
+  transform: translate(-50%, -50%);
+  -webkit-mask: url("../assets/images/icons/bag.svg") center / contain no-repeat;
+  mask: url("../assets/images/icons/bag.svg") center / contain no-repeat;
+}
+
+.site-header-action:first-child::before {
+  width: 22px;
+  height: 22px;
+  -webkit-mask-image: url("../assets/images/icons/truck.svg");
+  mask-image: url("../assets/images/icons/truck.svg");
+}
+
+.site-header-action:nth-child(2)::before {
+  width: 20px;
+  height: 20px;
+  -webkit-mask-image: url("../assets/images/icons/user.svg");
+  mask-image: url("../assets/images/icons/user.svg");
+}
+
+.site-header-action svg {
+  opacity: 0;
+}
+
+.site-header-action:first-child img {
+  width: 22px;
+  height: 22px;
+}
+
+.site-header-action:nth-child(2) img {
+  width: 20px;
+  height: 20px;
+}
+
+/* The homepage keeps its generated SVG wrappers; size them to the same header system. */
+.site-main-actions .site-header-action > div {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+}
+
+.site-main-actions .site-header-action:nth-child(2) > div {
+  width: 20px;
+  height: 20px;
+}
+
+.site-main-actions .site-header-action:nth-child(3) > div {
+  width: 18px;
+  height: 18px;
+}
+
+.site-main-actions .site-header-action > div > div,
+.site-main-actions .site-header-action > div > div > div {
+  width: 100%;
+  height: 100%;
+}
+
+.site-main-actions .site-header-action svg,
+.site-main-actions .site-header-action svg > * {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.site-main-actions .site-cart-trigger-badge {
+  display: none;
+}
+
+.site-main-actions .account-trigger-initials {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: inherit;
+  background: #f3f6fa;
+  color: #172033;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.site-main-actions .account-logged-in .account-trigger-initials {
+  display: flex;
+}
+
+.site-main-actions .account-logged-in::before {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .site-main-header {
+    height: 64px;
+  }
+
+  .site-main-header-inner {
+    width: 100%;
+    padding-inline: 12px;
+  }
+
+  .site-main-logo,
+  .site-main-actions {
+    display: none;
+  }
+
+  .site-main-search {
+    position: relative;
+    left: auto;
+    width: 100%;
+    max-width: none;
+    height: 40px;
+    margin: 0;
+    flex: 1 1 auto;
+    transform: none;
+  }
+
+  .site-main-search > input {
+    height: 40px;
+    padding-left: 44px;
+  }
+}

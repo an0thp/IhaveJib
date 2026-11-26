@@ -9,7 +9,9 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/computer-sets.css">
   <link rel="stylesheet" href="css/global-shell.css">
+  <link rel="stylesheet" href="css/site-header.css">
   <link rel="stylesheet" href="css/account.css">
+  <link rel="stylesheet" href="css/cart.css">
 </head>
 <body class="sets-page">
   <div class="sets-topbar">
@@ -22,13 +24,15 @@
       <a class="sets-nearby-store" href="https://www.jib.co.th/web/branch" target="_blank" rel="noopener"><img src="assets/images/icons/map-pin-2.svg" alt="">ค้นหาร้านค้าใกล้คุณ <span>›</span></a>
     </div>
   </div>
-  <header class="sets-header">
-    <a class="sets-logo" href="index.html"><img src="assets/images/logo_c.png" height="50" alt="JIB"></a>
-    <form id="sets-search" role="search"><button type="submit" aria-label="ค้นหา"><img src="assets/images/icons/search.svg" alt=""></button><input id="sets-query" type="search" placeholder="ค้นหาสินค้า" aria-label="ค้นหาสินค้า"></form>
-    <div class="sets-header-actions" aria-label="เมนูลัด">
-      <a href="https://www.jib.co.th/web/service/service_delivery" aria-label="บริการจัดส่ง"><img src="assets/images/icons/truck.svg" alt=""></a>
-      <a href="https://www.jib.co.th/web/member/login" aria-label="เข้าสู่ระบบ"><img src="assets/images/icons/user.svg" alt=""></a>
-      <a href="https://www.jib.co.th/web/cart" aria-label="ตะกร้าสินค้า"><img src="assets/images/icons/bag.svg" alt=""></a>
+  <header class="site-main-header">
+    <div class="site-main-header-inner">
+      <a class="site-main-logo" href="index.html" aria-label="หน้าแรก JIB"><img src="assets/images/logo_c.png" alt="JIB"></a>
+      <form id="sets-search" class="site-main-search" role="search"><button type="submit" aria-label="ค้นหา"><img src="assets/images/icons/search.svg" alt=""></button><input id="sets-query" type="search" placeholder="ค้นหาสินค้า" aria-label="ค้นหาสินค้า"></form>
+      <div class="site-main-actions" aria-label="เมนูลัด">
+        <button id="checkTrackingNumber" class="site-header-action" type="button" aria-label="เช็คสถานะการจัดส่ง"><img src="assets/images/icons/truck.svg" alt=""></button>
+        <button class="site-header-action" type="button" aria-label="เข้าสู่ระบบ"><img src="assets/images/icons/user.svg" alt=""></button>
+        <button name="button_cart" class="site-header-action site-cart-trigger" type="button" aria-label="ตะกร้าสินค้า"><img src="assets/images/icons/bag.svg" alt=""></button>
+      </div>
     </div>
   </header>
   <nav class="sets-nav" aria-label="เมนูหลัก">
@@ -125,5 +129,7 @@
   <script src="js/jib-snapshot.js"></script>
   <script src="js/computer-sets.js"></script>
   <script src="js/account.js"></script>
+  <script src="js/product-routing.js?v=20261126-3"></script>
+  <script src="js/cart.js"></script>
 </body>
 </html>

@@ -20,6 +20,27 @@
  */
 
 const HEART_SVG = `<div variant="medium" defaultcolor="currentColor" class="sc-b8cf93f4-0 bQDTJZ"><div><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="injected-svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.4502 3.98319L11.436 5.02972C11.0592 5.41843 10.5411 5.63785 9.99974 5.63785C9.45844 5.63785 8.94024 5.41843 8.56353 5.02972L7.54932 3.98319C6.9321 3.3463 6.10857 3.00053 5.26361 3.00053C4.41865 3.00053 3.59512 3.3463 2.97789 3.98319C2.3586 4.62222 2 5.50193 2 6.43187C2 7.36181 2.3586 8.24151 2.97789 8.88054L9.99974 16.1262L17.0216 8.88054C17.3278 8.56472 17.5742 8.18603 17.7432 7.76518C17.9123 7.34425 18 6.891 18 6.43187C18 5.97273 17.9123 5.51949 17.7432 5.09855C17.5742 4.67771 17.3281 4.29935 17.0219 3.98353C16.716 3.66769 16.3555 3.41993 15.964 3.25255C15.5727 3.08524 15.1556 3 14.7359 3C14.3162 3 13.8991 3.08524 13.5077 3.25255C13.1163 3.41992 12.7561 3.66735 12.4502 3.98319ZM9.99974 19L1.54168 10.2724C0.554557 9.25383 0 7.87235 0 6.43187C0 4.99139 0.554557 3.6099 1.54168 2.59133C2.52879 1.57276 3.86761 1.00053 5.26361 1.00053C6.4801 1.00053 7.65317 1.43506 8.58793 2.22081C8.72586 2.33676 8.85861 2.46035 8.98554 2.59133L9.99974 3.63785L11.0139 2.59133C11.1405 2.46067 11.2732 2.33701 11.4115 2.22074C11.8071 1.88806 12.2483 1.61591 12.7215 1.41358C13.3601 1.14054 14.0446 1 14.7359 1C15.4272 1 16.1117 1.14054 16.7503 1.41358C17.3889 1.68663 17.969 2.08693 18.4577 2.59143C18.9466 3.09569 19.3346 3.69431 19.5992 4.35328C19.8638 5.01225 20 5.71857 20 6.43187C20 7.14517 19.8638 7.85148 19.5992 8.51045C19.3346 9.16942 18.9467 9.76814 18.4578 10.2724L9.99974 19Z" fill="#A3B3DB"></path></svg></div></div>`;
+const PROMOTION_SEEN_KEY = "jibPromotionSeen";
+
+function initPromotionPopup() {
+  const promotion = document.getElementById("jib-promotion");
+  if (!promotion || typeof promotion.showModal !== "function" || promotion.open) return;
+
+  let hasSeenPromotion = false;
+  try {
+    hasSeenPromotion = localStorage.getItem(PROMOTION_SEEN_KEY) === "true";
+    if (!hasSeenPromotion) localStorage.setItem(PROMOTION_SEEN_KEY, "true");
+  } catch (error) {
+    try {
+      hasSeenPromotion = sessionStorage.getItem(PROMOTION_SEEN_KEY) === "true";
+      if (!hasSeenPromotion) sessionStorage.setItem(PROMOTION_SEEN_KEY, "true");
+    } catch (storageError) {
+      console.warn("Unable to save promotion popup state", storageError);
+    }
+  }
+
+  if (!hasSeenPromotion) promotion.showModal();
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".category-dropdown-link").forEach(link => {
@@ -34,10 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (event.key === "Enter") window.location.href = destination;
     });
   });
-  const promotion = document.getElementById("jib-promotion");
-  if (typeof promotion?.showModal === "function" && !promotion.open) {
-    promotion.showModal();
-  }
+  initPromotionPopup();
   applyJibContent();
   initStickyHeaderAndDropdowns();
   initAllCarousels();
@@ -835,6 +853,30 @@ function initAccessoriesSectionTabs() {
  * 11. Wishlist Heart Toggle & Search Input
  */
 function initWishlistAndSearch() {
+  let productPointerStart = null;
+  document.addEventListener("pointerdown", (e) => {
+    const target = e.target && e.target.nodeType === Node.ELEMENT_NODE
+      ? e.target
+      : e.target && e.target.parentElement;
+    const link = target && target.closest("a[href*='product.html?id=']");
+    productPointerStart = link
+      ? { link, x: e.clientX, y: e.clientY }
+      : null;
+  }, true);
+
+  document.addEventListener("pointerup", (e) => {
+    if (!productPointerStart) return;
+    const start = productPointerStart;
+    productPointerStart = null;
+    const moved = Math.hypot(e.clientX - start.x, e.clientY - start.y);
+    if (moved > 7) return;
+    const href = (start.link.getAttribute("href") || "").trim();
+    if (!/^(?:\.\/)?product\.html\?id=\d+/i.test(href)) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    window.location.assign(href);
+  }, true);
+
   document.body.addEventListener("click", (e) => {
     const wishBtn = e.target.closest(".wishlist-btn");
     if (wishBtn) {
@@ -862,12 +904,21 @@ function initWishlistAndSearch() {
     });
   }
 
-  // Global Mockup Link Click Interceptor
-  // ป้องกันการกดลิงก์แล้วนำทางออกไปยังเว็บไซต์ภายนอก (ihavecpu) ทำให้ทั้งเว็บทำงานเป็น Mockup 100%
+  // Global internal-link guard. Product cards inside draggable carousels can
+  // cancel their native click, so route local product links during capture.
   document.addEventListener("click", (e) => {
-    const link = e.target.closest("a");
+    const target = e.target && e.target.nodeType === Node.ELEMENT_NODE
+      ? e.target
+      : e.target && e.target.parentElement;
+    const link = target && target.closest("a");
     if (!link) return;
     const href = (link.getAttribute("href") || "").trim();
+    if (/^(?:\.\/)?product\.html\?id=\d+/i.test(href)) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      window.location.assign(href);
+      return;
+    }
     if (
       href === "javascript:void(0)" ||
       href === "#" ||
@@ -876,7 +927,7 @@ function initWishlistAndSearch() {
     ) {
       e.preventDefault();
     }
-  });
+  }, true);
 }
 
 let toastTimeout = null;

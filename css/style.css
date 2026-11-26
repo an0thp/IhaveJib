@@ -10757,12 +10757,13 @@ div:where(.swal2-icon).swal2-success
    ========================================================================== */
 .brand-showcase-container {
   width: 100%;
-  max-width: 1360px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 12px 6px;
+  padding: 0 0 6px;
   box-sizing: border-box;
   text-align: center;
 }
+
 
 .brand-showcase-title {
   font-size: 18px;

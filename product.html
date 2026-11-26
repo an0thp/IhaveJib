@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>รายละเอียดสินค้า JIB</title>
+  <link rel="icon" href="favicon-32x32.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/computer-sets.css">
+  <link rel="stylesheet" href="css/global-shell.css">
+  <link rel="stylesheet" href="css/site-header.css">
+  <link rel="stylesheet" href="css/account.css">
+  <link rel="stylesheet" href="css/cart.css">
+  <link rel="stylesheet" href="css/product.css">
+</head>
+<body class="sets-page product-page">
+  <div class="sets-topbar">
+    <div class="sets-topbar-inner">
+      <div class="sets-topbar-left">
+        <span><img src="assets/images/icons/phone-call.svg" alt="">02-017-4444 (24 ชม.)</span>
+        <a href="contact.html"><img src="assets/images/icons/mail.svg" alt="">ติดต่อ JIB Online</a>
+        <span>บริษัท เจ.ไอ.บี. คอมพิวเตอร์ กรุ๊ป จำกัด (สำนักงานใหญ่)</span>
+      </div>
+      <a class="sets-nearby-store" href="contact.html"><img src="assets/images/icons/map-pin-2.svg" alt="">ค้นหาร้านค้าใกล้คุณ <span>›</span></a>
+    </div>
+  </div>
+
+  <header class="site-main-header">
+    <div class="site-main-header-inner">
+      <a class="site-main-logo" href="index.html" aria-label="หน้าแรก JIB"><img src="assets/images/logo_c.png" alt="JIB"></a>
+      <form id="product-search" class="site-main-search" role="search"><button type="submit" aria-label="ค้นหา"><img src="assets/images/icons/search.svg" alt=""></button><input id="product-search-input" type="search" placeholder="ค้นหาสินค้า" aria-label="ค้นหาสินค้า"></form>
+      <div class="site-main-actions" aria-label="เมนูลัด">
+        <button id="checkTrackingNumber" class="site-header-action" type="button" aria-label="เช็คสถานะการจัดส่ง"><img src="assets/images/icons/truck.svg" alt=""></button>
+        <button class="site-header-action" type="button" aria-label="เข้าสู่ระบบ"><img src="assets/images/icons/user.svg" alt=""></button>
+        <button name="button_cart" class="site-header-action site-cart-trigger" type="button" aria-label="ตะกร้าสินค้า"><img src="assets/images/icons/bag.svg" alt=""></button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="sets-nav" aria-label="เมนูหลัก">
+    <div class="sets-nav-inner">
+      <div class="sets-category-holder">
+        <button id="product-category-toggle" class="sets-category-toggle" type="button" aria-expanded="false"><img src="assets/images/icons/categories.svg" alt=""><span>หมวดหมู่สินค้า</span><span class="sets-category-chevron">›</span></button>
+        <div id="product-category-menu" class="product-category-menu" hidden>
+          <a href="diy.html"><img src="assets/images/icons/tools.svg" alt="">จัดสเปกคอม</a>
+          <a href="computer-sets.html"><img src="assets/images/icons/pc-display.svg" alt="">คอมพิวเตอร์เซต</a>
+          <a href="index.html#notebooks"><img src="assets/images/icons/laptop2.svg" alt="">โน๊ตบุ๊ค</a>
+          <a href="index.html#diy-products"><img src="assets/images/icons/cpu.svg" alt="">อุปกรณ์คอมพิวเตอร์</a>
+        </div>
+      </div>
+      <div class="sets-nav-links"><a href="index.html">หน้าแรก</a><a href="computer-sets.html">คอมพิวเตอร์เซต</a><a href="diy.html">จัดสเปกคอม</a><a href="blog.html">บทความ</a><a href="contact.html">ติดต่อเรา</a><a href="about.html">เกี่ยวกับเรา</a></div>
+    </div>
+  </nav>
+
+  <main class="product-main">
+    <nav class="product-breadcrumb" aria-label="เส้นทางหน้า"><a href="index.html">หน้าแรก</a><span>›</span><span id="product-breadcrumb-category">สินค้า</span><span>›</span><span id="product-breadcrumb-name">รายละเอียดสินค้า</span></nav>
+
+    <section class="product-hero" aria-labelledby="product-title">
+      <div class="product-gallery">
+        <div class="product-image-stage"><img id="product-main-image" src="assets/images/logo_c.png" alt=""></div>
+        <div id="product-thumbnails" class="product-thumbnails" aria-label="รูปสินค้า"></div>
+      </div>
+
+      <div class="product-summary">
+        <span id="product-stock" class="product-stock">มีสินค้า</span>
+        <h1 id="product-title">กำลังโหลดข้อมูลสินค้า...</h1>
+        <p class="product-meta">แบรนด์: <strong id="product-brand">JIB</strong><span></span>รหัสสินค้า: <strong id="product-sku">-</strong></p>
+
+        <div class="product-tools">
+          <div><button id="product-share" type="button" aria-label="คัดลอกลิงก์สินค้า">↗</button><button id="product-wishlist" type="button" aria-label="เพิ่มในรายการโปรด">♡</button></div>
+          <span id="product-share-status" role="status"></span>
+        </div>
+
+        <div class="product-price-row"><strong id="product-price">฿0.00</strong><del id="product-original-price"></del><span id="product-discount"></span></div>
+
+        <div class="product-quantity-row">
+          <span>จำนวน</span>
+          <button id="product-decrease" type="button" aria-label="ลดจำนวน">−</button>
+          <strong id="product-quantity">01</strong>
+          <button id="product-increase" type="button" aria-label="เพิ่มจำนวน">+</button>
+        </div>
+
+        <div class="product-actions">
+          <button id="product-add-cart" class="product-add-cart" type="button"><img src="assets/images/icons/bag.svg" alt="">เพิ่มในตะกร้า</button>
+          <button id="product-buy-now" class="product-buy-now" type="button">ซื้อเลย</button>
+        </div>
+        <div id="product-tags" class="product-tags"></div>
+      </div>
+    </section>
+
+    <section class="product-information" aria-label="ข้อมูลสินค้า">
+      <div class="product-tabs" role="tablist">
+        <button class="is-active" type="button" data-product-tab="all">ทั้งหมด</button>
+        <button type="button" data-product-tab="specs">คุณสมบัติสินค้า</button>
+        <button type="button" data-product-tab="details">รายละเอียดสินค้า</button>
+      </div>
+      <div class="product-info-content">
+        <section id="product-specs-section" data-product-panel="specs"><h2>คุณสมบัติสินค้า</h2><dl id="product-specs" class="product-specs"></dl></section>
+        <section id="product-details-section" data-product-panel="details"><h2>รายละเอียดสินค้า</h2><div class="product-description"><img id="product-detail-image" src="assets/images/logo_c.png" alt=""><div><h3 id="product-detail-title"></h3><p id="product-detail-copy"></p></div></div></section>
+      </div>
+    </section>
+
+    <section class="product-related" aria-labelledby="product-related-title"><div class="product-section-heading"><h2 id="product-related-title">จากหมวดหมู่เดียวกัน</h2><a href="index.html">ดูสินค้าทั้งหมด</a></div><div id="product-related-grid" class="product-related-grid"></div></section>
+  </main>
+
+  <section class="product-service-strip" aria-label="บริการของ JIB">
+    <div><img src="assets/images/icons/truck.svg" alt=""><span><strong>ส่งฟรีทั่วไทย</strong>เมื่อช็อปครบ 5,000 ขึ้นไป</span></div>
+    <div><img src="assets/images/icons/feedback-thumbs-up.svg" alt=""><span><strong>เปลี่ยนคืนสินค้าง่าย</strong>เปลี่ยนใหม่ภายใน 7 วัน</span></div>
+    <div><img src="assets/images/icons/flash.svg" alt=""><span><strong>รวดเร็วในการให้บริการ</strong>ตอบด่วน ตอบไว</span></div>
+    <div><img src="assets/images/icons/payment.svg" alt=""><span><strong>ชำระเงินปลอดภัย</strong>ด้วยระบบออนไลน์</span></div>
+  </section>
+
+  <footer class="sets-home-footer product-footer">
+    <div class="product-footer-inner">
+      <div><a href="index.html"><img src="assets/images/logo.png" alt="JIB" height="50"></a><p><strong>บริษัท เจ.ไอ.บี. คอมพิวเตอร์ กรุ๊ป จำกัด (สำนักงานใหญ่)</strong><br>เลขที่ 21 ถนนพหลโยธิน แขวงสนามบิน เขตดอนเมือง กรุงเทพมหานคร 10210<br>โทรศัพท์: 02-017-4444 (ตลอด 24 ชั่วโมง)</p></div>
+      <div><h3>เกี่ยวกับเรา</h3><a href="about.html">เกี่ยวกับ JIB</a><a href="contact.html">ติดต่อเรา</a></div>
+      <div><h3>บริการลูกค้า</h3><button id="footer-tracking" type="button" aria-label="บริการจัดส่ง">เช็กสถานะการจัดส่ง</button><a href="cart.html">ตะกร้าสินค้า</a></div>
+      <div><h3>เลือกซื้อสินค้า</h3><a href="computer-sets.html">คอมพิวเตอร์เซต</a><a href="diy.html">จัดสเปกคอม</a><a href="blog.html">บทความ</a></div>
+    </div>
+    <div class="product-copyright">Copyright © 2026 บริษัท เจ.ไอ.บี. คอมพิวเตอร์ กรุ๊ป จำกัด (สำนักงานใหญ่) All rights reserved.</div>
+  </footer>
+
+  <div id="product-toast" class="product-toast" role="status" aria-live="polite"></div>
+  <script src="js/jib-snapshot.js"></script>
+  <script src="js/notebook-specs.js"></script>
+  <script src="js/cpu-specs.js"></script>
+  <script src="js/product-routing.js?v=20261126-3"></script>
+  <script src="js/product.js"></script>
+  <script src="js/account.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>
